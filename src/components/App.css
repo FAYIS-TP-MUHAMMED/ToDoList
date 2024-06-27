@@ -18,9 +18,11 @@
     text-align: center;
   }
   
-  .app h1,
-  h2 {
+  .app h1, h2 {
     color: white;
+    text-align: center;
+    padding-top: 10px;
+    
   }
   
   .app .input {
@@ -65,25 +67,56 @@
     margin-top: 0.8em;
     width: 20em;
     height: 2em;
-    background-color: white;
+    background-color: rgb(227, 227, 236);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 6px;
     padding: 5px;
   }
+ 
   .app .todos .todo .left {
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
   
-  .app .todos .todo .left p {
+  .app .todos .todo  .left p  {
     margin-left: 3px;
     font-size: medium;
     font-weight: 700;
     font-style: normal;
-    color: grey;
+    color: rgb(14, 12, 12);
   }
-  
+
+  .toDo-checked{
+    margin-top: 0.8em;
+    width: 20em;
+    height: 2em;
+    background-color: rgb(99, 82, 82);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    padding: 5px;
+  }
+ .toDo-checked .left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+.toDo-checked .left p{
+    margin-left: 3px;
+    font-size: medium;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(12, 12, 12);
+  }
+  /* .checkBox{
+    margin-right: 2px;
+  }   */
+  .toDo-checked .left p{
+    text-decoration: line-through;
+  }
+ 
   
