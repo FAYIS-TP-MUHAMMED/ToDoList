@@ -1,12 +1,14 @@
 
 import React from 'react';
 import './components/App.css';
-import { useState } from 'react';
+import { useState} from 'react';
 
 function App() {
   const [toDos,setToDos]=useState([])
   let [toDo,setToDo]=useState([])
   const date= new Date();
+  let [id,setId]=useState(null)
+  let [status,setStatus]=useState(false) 
  /* const formattedDate= date.toLocaleDateString('en-us',{
     weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric'
   }) */
@@ -16,6 +18,7 @@ function App() {
   const dateWithDay = `${dayName}, ${formattedDate}`;
   
   return (
+    
     <div className="app">
       <div className="mainHeading">
         <h1>ToDo List</h1>
@@ -26,7 +29,18 @@ function App() {
       </div>
       <div className="input">
         <input value={toDo} onChange={(e)=>setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-        <i onClick={()=>{setToDos([...toDos,{id:Date.now(), text:toDo,status:false}]);setToDo("")}} className="fas fa-plus"></i>
+        <i onClick={()=>{
+          if(id){
+           setToDos(
+        toDos.map((obj) =>
+          obj.id === id ? { ...obj, text: toDo, status: status } : obj
+        )
+      );
+    }
+          else{setToDos([...toDos,{id:Date.now(), text:toDo,status:false}]);}
+          setToDo("");
+          setId(null)
+          }} className="fas fa-plus"></i>
       </div>
       
       <h2>My Tasks</h2>
@@ -62,7 +76,10 @@ function App() {
           <div>
             <i class="fa-regular fa-pen-to-square" style={{fontSize:"17px",padding:"2px"}}
               onClick={(e)=>{
-                
+                 setToDo(obj.text)
+                 setId(obj.id)
+                 setStatus(obj.status)
+                 
               }}></i>
 
             <i className="fas fa-times" onClick={(e)=>{
