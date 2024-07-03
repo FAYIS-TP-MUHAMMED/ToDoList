@@ -23,6 +23,7 @@ function App() {
   }, [toDos]);
 
   return (
+
     <div className="app">
       <div className="mainHeading">
         <h1>ToDo List</h1>
@@ -105,7 +106,7 @@ function App() {
 
       </div>
     </div>
-  );
+);
 }
 
 export default App;
