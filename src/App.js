@@ -6,6 +6,7 @@ function App() {
   const [toDos, setToDos] = useState(JSON.parse(localStorage.getItem("toDos")) || []);
   let [toDo, setToDo] = useState("");
   let [id, setId] = useState(null);
+  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")) || ["theme1"])
 
   // for displying date
   /* const formattedDate= date.toLocaleDateString('en-us',{
@@ -22,7 +23,19 @@ function App() {
     localStorage.setItem("toDos", JSON.stringify(toDos));
   }, [toDos]);
 
+  useEffect(()=>{
+     // save theme to localStorage
+     document.body.className = theme;
+     localStorage.setItem("theme",JSON.stringify(theme));
+  })
+
   return (
+   <main>
+    <div className="themeSelector">
+         <div className="theme1 theme" onClick={(e)=>setTheme("theme1")} ></div>
+         <div className="theme2 theme" onClick={(e)=>setTheme("theme2")}></div>
+         <div className="theme3 theme" onClick={(e)=>setTheme("theme3")}></div>
+    </div>
 
     <div className="app">
       <div className="mainHeading">
@@ -105,7 +118,8 @@ function App() {
         })};
 
       </div>
-    </div>
+     </div>
+    </main>
 );
 }
 
