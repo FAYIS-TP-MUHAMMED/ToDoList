@@ -28,30 +28,22 @@
     background-color: #020631;
   }
 
-  
-  .app {
-    position:absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -10%);
-    padding-top: 20px;
-  }
-  
-  .app .mainHeading h1 {
-    text-align: center;
+  .app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .app h1, h2 {
     color: white;
     text-align: center;
     padding-top: 10px;
-    
   }
-  
   .app .input {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
   
   .app .input {
@@ -138,9 +130,6 @@
     font-style: normal;
     color: rgb(12, 12, 12);
   }
-  /* .checkBox{
-    margin-right: 2px;
-  }   */
   .toDo-checked .left p{
     text-decoration: line-through;
   }
