@@ -7,6 +7,8 @@ function App() {
   let [toDo, setToDo] = useState("");
   let [id, setId] = useState(null);
   const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")) || ["theme1"])
+  const [isMobile,setIsMobile] = useState(window.innerWidth <= 760)
+  const [showAllTheme,setShowAll] = useState(isMobile ? false :true) 
 
   // for displying date
   /* const formattedDate= date.toLocaleDateString('en-us',{
@@ -29,12 +31,37 @@ function App() {
      localStorage.setItem("theme",JSON.stringify(theme));
   })
 
+  const handleThemeClick = (theme)=>{ 
+      if(isMobile){
+      setShowAll(showAllTheme ? false : true)
+      setTheme(theme)
+      }else
+      setShowAll(true) 
+      setTheme(theme)
+  }
+
   return (
    <main>
     <div className="themeSelector">
-         <div className="theme1 theme" onClick={(e)=>setTheme("theme1")} ></div>
-         <div className="theme2 theme" onClick={(e)=>setTheme("theme2")}></div>
-         <div className="theme3 theme" onClick={(e)=>setTheme("theme3")}></div>
+      {showAllTheme ? ( 
+      <>
+         <div className="theme1 theme" onClick={()=>handleThemeClick("theme1")}><span>T1</span></div>
+         <div className="theme2 theme" onClick={()=>handleThemeClick("theme2")}><span>T2</span></div>
+         <div className="theme3 theme" onClick={()=>handleThemeClick("theme3")}><span>T3</span></div>
+      </> 
+      ) : (
+        <>
+          {theme=== 'theme1' && (
+            <div className="theme1 theme" onClick={()=>handleThemeClick("theme1")}><p>themes</p></div>
+          )}
+          {theme=== 'theme2' && (
+            <div className="theme2 theme" onClick={()=>handleThemeClick("theme2")}><p>theme</p></div>
+          )}
+          {theme=== 'theme3' && (
+            <div className="theme3 theme" onClick={()=>handleThemeClick("theme3")}><p>theme</p></div>
+          )}
+        </>
+      )}  
     </div>
 
     <div className="app">

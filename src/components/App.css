@@ -14,6 +14,26 @@
     height: 30px;
     border: 1px solid white;
     border-radius: 100%;
+    margin-right: 3px ;
+    color: white;
+    font-size: 8px;
+  }
+  .theme:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: orangered;
+  }
+  .theme p{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .theme span{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .theme1{
     background-image: url('../images/2256080.jpg');
@@ -27,6 +47,7 @@
   .theme3{
     background-color: #020631;
   }
+
 
   .app{
     display: flex;
@@ -43,13 +64,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-  }
-  
-  .app .input {
+
     margin-top: 0.8em;
     width: 20em;
-    height: 2em;
     background-color: rgb(255, 254, 254);
     display: flex;
     justify-content: space-between;
@@ -57,10 +74,12 @@
     border-radius: 6px;
     padding: 5px;
   }
+  input:focus{
+    outline: none;
+  }
   .input input{
      font-size: 15px;
   }
-  
   .app .input input {
     width: 100%;
     height: 1.6em;
@@ -74,6 +93,7 @@
     font-weight: 900;
     color: grey;
     margin-right: 5px;
+    margin-bottom: 4px;
   }
   .app .todos {
     display: flex;
@@ -84,33 +104,38 @@
   .app .todos .todo {
     margin-top: 0.8em;
     width: 20em;
-    height: 2em;
+    /* height: 2em; */
     background-color: rgb(227, 227, 236);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 6px;
-    padding: 5px;
+    padding: 9px;
   }
  
   .app .todos .todo .left {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+  }
+  .app .todos .toDo-checked .left{
+    display: flex;
+    align-items: flex-start;
   }
   
-  .app .todos .todo  .left p  {
+  .app .todos .todo  .left p, .toDo-checked .left p  {
     margin-left: 3px;
+    margin-left: 6px;
     font-size: medium;
     font-weight: 700;
     font-style: normal;
     color: rgb(14, 12, 12);
+    letter-spacing: 0.7px;
   }
+ .app .todos .toDo-checked .left  p{ margin-left: 10px;}
 
   .toDo-checked{
     margin-top: 0.8em;
     width: 20em;
-    height: 2em;
     background-color: rgb(99, 82, 82);
     display: flex;
     justify-content: space-between;
@@ -119,6 +144,7 @@
     padding: 5px;
   }
  .toDo-checked .left{
+    padding-top: 4px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -129,9 +155,10 @@
     font-weight: 700;
     font-style: normal;
     color: rgb(12, 12, 12);
-  }
-  .toDo-checked .left p{
     text-decoration: line-through;
   }
+  
  
+ 
+
   
